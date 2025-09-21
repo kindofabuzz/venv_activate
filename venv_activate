@@ -1,0 +1,45 @@
+#!/bin/bash
+
+Color_Off='\033[0m'
+BGreen='\033[1;32m'
+nl=$'\n'
+
+venv_activate() {
+    enjoy() {
+        echo -e "Enjoy working on your $(basename "$PWD") project, ${USER^}!"
+        printf '*%.0s' {1..80}
+
+    }
+
+
+   spin_up() {
+        if [ -n "$1" ]; then #Check if a virtual environment path is provided.
+            bash -c "source $1/bin/activate; exec bash -i" || echo "Failed to activate: $1"
+        else
+            echo "Error: No virtual environment path provided to spin_up." >&2
+            return 1
+        fi
+    }
+
+
+    if [ -d "$PWD/.venv" ]; then ${nl}
+        printf '*%.0s' {1..80}
+        echo  -e "${nl}$BGreen .venv$Color_Off found in: $PWD  |  $BGreen .venv$Color_Off activated.${nl}"
+        venv_path="$PWD/.venv"
+        enjoy
+        spin_up "$venv_path"
+        return 0
+    elif [ -d "$PWD/venv" ]; then
+        printf '*%.0s' {1..80}
+        echo -e "${nl}$BGreen venv$Color_Off found in: $PWD  | $BGreen venv$Color_Off activated.${nl}"
+        venv_path="$PWD/venv"
+        enjoy
+        spin_up "$venv_path"
+        return 0
+    else
+        echo -e "Error: No 'venv' or '.venv' directory found." >&2
+        return 1  # Indicate failure
+    fi
+
+
+}
