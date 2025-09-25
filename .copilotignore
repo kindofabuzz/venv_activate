@@ -1,0 +1,27 @@
+# Git directories and files
+.git/
+.gitignore
+
+# Build and temporary files
+*.tmp
+*.temp
+/tmp/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Virtual environments (these are test directories, not source code)
+.venv/
+venv/
+env/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
