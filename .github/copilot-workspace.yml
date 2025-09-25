@@ -1,0 +1,33 @@
+# GitHub Copilot Workspace Configuration
+
+# This file provides additional context to GitHub Copilot about the workspace
+# and project structure to improve code suggestions and understanding
+
+project:
+  name: "venv_activate"
+  description: "A Bash script that automatically detects and activates Python virtual environments"
+  language: "bash"
+  type: "utility-script"
+
+conventions:
+  indentation: "4 spaces"
+  line_endings: "unix"
+  max_line_length: 100
+  
+patterns:
+  - "Single-purpose utility script"
+  - "Error handling with proper exit codes"
+  - "Colored terminal output for user experience"
+  - "Defensive programming with input validation"
+
+context:
+  primary_files:
+    - "venv_activate"
+  documentation:
+    - ".github/copilot-instructions.md"
+  
+focus_areas:
+  - "Bash scripting best practices"
+  - "Terminal user interface"
+  - "Python virtual environment handling"
+  - "Cross-platform compatibility"
