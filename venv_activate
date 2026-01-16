@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 Color_Off='\033[0m'
 BGreen='\033[1;32m'
